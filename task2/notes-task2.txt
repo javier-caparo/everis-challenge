@@ -9,11 +9,14 @@ gcloud compute firewall-rules create rule-allow-tcp-8080 --source-ranges 0.0.0.0
 
 gcloud compute instances add-tags myjenkinsvm --tags allow-tcp-8080 --zone us-central1-c
 
-gcloud beta compute ssh --zone us-central1-c myjenkinsvm --project challenge-everis-299103
+gcloud compute scp linux_jenkins.yml  myjenkinsvm:/tmp
+
+gcloud beta compute ssh --zone "us-central1-c" "myjenkinsvm" --project "challenge-everis-299103"
 
 gcloud compute instances stop myjenkinsvm
 
 Install Ansible on centos
+==================
 sudo yum -y update
 sudo yum -y install epel-repo
 sudo yum -y update
@@ -56,8 +59,7 @@ Install jenkins plugin
   - on Git put the repositorio
    - Location of pom.xml firewal
    - 
-- Github Integration with PTA ( cedential Secret Key)
-77389dcad5c45f3b0669df532b652025e2c52456
+
 
  use github  publicos 
    
