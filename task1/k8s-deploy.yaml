@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task1api-deployment     
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: task1api
+  template:
+    metadata:
+      labels:
+        app: task1api
+    spec:
+      containers:
+      - name: task1api-container
+        image: gcr.io/challenge-everis-299103/task1api:latest
+        ports:
+        - containerPort: 8080
+          protocol: TCP

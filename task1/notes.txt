@@ -1,0 +1,50 @@
+terraform init
+terraform apply -auto-approve
+terraform destroy -auto-approve
+
+Outputs:
+
+kubernetes_cluster_name = "challenge-everis-299103-gke"
+region = "us-central1"
+
+
+Commands to get credentials
+==============================
+Configure kubectl
+To configure kubetcl, by running the following command.
+
+$ gcloud container clusters get-credentials challenge-everis-299103-gke --region us-central1
+
+
+
+gcloud container clusters describe challenge-everis-299103-gke --region us-central1 --format='default(locations)'
+gcloud compute instances list --filter "challenge-everis-299103"
+
+kubectl get nodes
+NAME                                                  STATUS   ROLES    AGE   VERSION
+gke-challenge-everis-challenge-everis-14f6aaa8-9z13   Ready    <none>   21m   v1.16.15-gke.4901
+gke-challenge-everis-challenge-everis-5ffbb33e-493x   Ready    <none>   21m   v1.16.15-gke.4901
+gke-challenge-everis-challenge-everis-95f38bb1-gshv   Ready    <none>   21m   v1.16.15-gke.4901
+
+
+Deploy the application on nodes
+kubectl apply --filename k8s-deploy.yaml
+
+
+kubectl get nodes
+
+kubectl get pods
+
+kubectl logs pod-name
+
+---> Service
+kubectl create -f k8s-service.yaml
+kubectl get services
+
+--> Enable port on firewall
+$ gcloud compute firewall-rules create our-rules --allow tcp:30641
+
+---> Ingress
+kubectl create -f k8s-ingress.yaml
+kubectl get ingress
+

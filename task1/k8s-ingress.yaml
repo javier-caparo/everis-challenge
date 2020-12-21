@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: task1-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: "/*"
+        backend:
+          serviceName: task1api-service
+          servicePort: 8080

@@ -1,0 +1,69 @@
+
+gcloud compute instances create myjenkinsvm \
+--zone=us-central1-c  --machine-type=e2-small \
+--image-project=centos-cloud --image-family=centos-7 \
+--boot-disk-type=pd-standard --boot-disk-size=80GB
+
+gcloud compute firewall-rules create rule-allow-tcp-8080 --source-ranges 0.0.0.0/0 --target-tags allow-tcp-8080 
+--allow tcp:8080
+
+gcloud compute instances add-tags myjenkinsvm --tags allow-tcp-8080 --zone us-central1-c
+
+gcloud beta compute ssh --zone us-central1-c myjenkinsvm --project challenge-everis-299103
+
+gcloud compute instances stop myjenkinsvm
+
+Install Ansible on centos
+sudo yum -y update
+sudo yum -y install epel-repo
+sudo yum -y update
+sudo yum -y install ansible
+ansible --version
+
+Install Maven in centos 7
+----
+# cd /usr/local/src
+# sudo wget http://www-us.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+# sudo tar -xf apache-maven-3.6.3-bin.tar.gz
+# sudo mv apache-maven-3.6.3/ apache-maven/
+# cd /etc/profile.d/
+# vim maven.sh
+
+
+
+-Play the ansible playbook ( configured as localhost)
+
+TASK [Print init password Jenkins] **************************************************************************************
+ok: [localhost] => {
+    "result.stdout": "013539f7f197447ea9af044fd4bc4a4d"
+}
+
+
+=====
+MAVEN
+=====
+
+Install jenkins plugin
+ - Maven Integration
+  - Git
+  - Pipeline Maven Integration
+
+-Jenkins Global Tool Configuraiton
+  In JDK , chose 2 javas ( jdk9 and jdk8 )
+  In Maven , chose Maven3
+
+- Create a Maven Job
+  - on Git put the repositorio
+   - Location of pom.xml firewal
+   - 
+- Github Integration with PTA ( cedential Secret Key)
+77389dcad5c45f3b0669df532b652025e2c52456
+
+ use github  publicos 
+   
+2 public repos:
+
+ - Jenkis Shared Library to use with Maven
+https://github.com/jfcb853/jenkins-maven-shared-lib.git
+ - A Maven project ( HellowWorld) with java
+https://github.com/jfcb853/helloworld.git
