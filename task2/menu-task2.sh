@@ -1,5 +1,6 @@
 #!/bin/bash
-##### Environmet ###
+##### Environmets  ###
+Project=$(gcloud config get-value project)
 VM_Name="myjenkisvm"
 Location="us-central1-c"
 Firewall_Rule_Name="rule-allow-tcp-8080"
@@ -22,9 +23,9 @@ select step in "${steps[@]}"; do
             gcloud compute instances add-tags $VM_Name --tags allow-tcp-8080 --zone $Location
             break
             ;;
-        "Ansible Instruccions")
+        "How to play Ansible")
             echo "Follow the README.md instructions:"
-            echo "Enter to the JenkinsVM : gcloud beta compute ssh --zone us-central1-c $VM_Name --project <Your_Proyect_Here>"
+            echo "Enter by ssh to the JenkinsVM : gcloud beta compute ssh --zone us-central1-c $VM_Name --project $Project"
 	        break
             ;;
         "ConfigJenkins")

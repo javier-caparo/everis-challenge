@@ -1,3 +1,6 @@
+gcloud auth activate-service-account everis@challenge-everis-299103.iam.gserviceaccount.com --key-file=challenge-everis-299103-415131ccc2f2.json
+
+
 terraform init
 terraform apply -auto-approve
 terraform destroy -auto-approve

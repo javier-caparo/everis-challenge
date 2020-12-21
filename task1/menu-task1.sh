@@ -19,7 +19,7 @@ do
             echo 'Creating terraform.tfvars file...'
             echo "project_id = \"$PROJECT_ID\"" > terraform.tfvars
             echo "region     = \"$REGION_ID\"" >> terraform.tfvars
-            echo "location     = \"$LOCATION_ID\"" >> terraform.tfvars
+            echo "location   = \"$LOCATION_ID\"" >> terraform.tfvars
             cat terraform.tfvars
             break;;
         "Create K8s")
@@ -51,7 +51,7 @@ do
             echo "get ingress controller info..."
             kubectl get ingress
             echo "You can try the app in some minutes, just wait the ingress get an address"
-            add  
+            kubectl describe ingress
             break
             ;;
         "Destroy K8s")
