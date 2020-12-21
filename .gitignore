@@ -1,3 +1,4 @@
 task1/.terraform/
 task1/.terraform.lock.hcl
 task1/*.json
+*.json

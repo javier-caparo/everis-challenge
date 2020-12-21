@@ -187,7 +187,7 @@ ok: [localhost] => {
    - create and admin user
 
 
-- Perform the folloing configurations on Jenkins GUI:
+- Perform the folling configurations on Jenkins GUI:
 
 a. Install these additional plugins and restart Jenkins:
   *-* Maven Integration
@@ -209,7 +209,7 @@ d. Global Tool Configuration:
  - Add 2 JDKs , check these images as a guide
  jenkins-global_tool_configuration_JKDs.png
 
-  `IMPORTANT HERE!!!!!!!! : Dont forget enter your oracle username/password to isntall 2 JDKs`
+  `IMPORTANT HERE!!!!!!!! : Don't forget enter your oracle username/password to isntall 2 JDKs`
 
  - Add Maven as is showed on this image:
  jenkins-global_tool_configuration_Maven.png
