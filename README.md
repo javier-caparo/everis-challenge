@@ -35,8 +35,22 @@
 - To install [Google Cloud SDK]  to use glcoud CLI tool on the machine/laptop/desktop/vm where you are goign to perform the configurations
 
 
+
+## TASK 1 - STEPS to face the challenge
+
+1.1 Build a flask/python restful api . 
+ - You can download the app form this [repo][Plapi] 
+
+
+
+
+
+==========================
+
 **Free Software, Hell Yeah!**
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
     [gcloud CLI tool]: < https://cloud.google.com/sdk/docs/install >
+
+    [Plapi]: https://github.com/jfcb853/everis-challenge-task1api.git
